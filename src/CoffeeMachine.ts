@@ -2,15 +2,17 @@ import { DrinkMaker } from "./DrinkMaker.js"
 
 export class CoffeeMachine {
   private selectedDrink = ""
+  private sugarQuantity = 0
+  private stick = false
 
   constructor(private readonly drinkMaker: DrinkMaker) {}
 
   selectTea() {
-    this.selectedDrink = "T::"
+    this.selectedDrink = "T"
   }
 
   selectChocolate() {
-    this.selectedDrink = "H::"
+    this.selectedDrink = "H"
   }
 
   selectCoffee() {
@@ -18,17 +20,20 @@ export class CoffeeMachine {
   }
 
   addSugar() {
-    this.selectedDrink = this.selectedDrink + ":1"
+    this.sugarQuantity += 1
 
     this.addStick()
   }
 
   private addStick() {
-    this.selectedDrink = this.selectedDrink + ":0"
+    this.stick = true
   }
 
   makeDrink() {
     if (!this.selectedDrink) this.drinkMaker.execute("M:Selecciona una bebida antes")
-    else this.drinkMaker.execute(this.selectedDrink)
+    else
+      this.drinkMaker.execute(
+        `${this.selectedDrink}:${this.sugarQuantity > 0 ? this.sugarQuantity : ""}:${this.stick ? 0 : ""}`,
+      )
   }
 }
