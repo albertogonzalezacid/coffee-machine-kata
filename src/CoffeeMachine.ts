@@ -21,6 +21,7 @@ export class CoffeeMachine {
   addStick() {}
 
   makeDrink() {
-    this.drinkMaker.execute(this.selectedDrink)
+    if (!this.selectedDrink) this.drinkMaker.execute("M:Selecciona una bebida antes")
+    else this.drinkMaker.execute(this.selectedDrink)
   }
 }
