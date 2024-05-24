@@ -35,4 +35,14 @@ describe("CoffeeMachine", () => {
 
     expect(drinkMaker.instructions).toBe("C::")
   })
+
+  it("makes 1 tea with no sugar and therefore no stick", () => {
+    const drinkMaker = new DrinkMakerFake()
+    const coffeeMachine = new CoffeeMachine(drinkMaker)
+
+    coffeeMachine.selectTea()
+    coffeeMachine.makeDrink()
+
+    expect(drinkMaker.instructions).toBe("T::")
+  })
 })
