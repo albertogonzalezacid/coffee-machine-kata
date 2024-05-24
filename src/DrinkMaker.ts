@@ -1,1 +1,3 @@
-export class DrinkMaker {}
+export class DrinkMaker {
+  execute() {}
+}
