@@ -5,7 +5,9 @@ export class CoffeeMachine {
 
   constructor(private readonly drinkMaker: DrinkMaker) {}
 
-  selectTea() {}
+  selectTea() {
+    this.selectedDrink = "T::"
+  }
 
   selectChocolate() {
     this.selectedDrink = "H::"
