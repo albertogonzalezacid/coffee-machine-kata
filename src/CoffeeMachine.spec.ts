@@ -14,4 +14,14 @@ describe("CoffeeMachine", () => {
 
     expect(drinkMaker.execute).toHaveBeenCalledWith("T:1:0")
   })
+
+  it("1 chocolate with no sugar and therefore no stick", () => {
+    const drinkMaker = new DrinkMaker()
+    const coffeeMachine = new CoffeeMachine(drinkMaker)
+
+    coffeeMachine.selectChocolate()
+    coffeeMachine.makeDrink()
+
+    expect(drinkMaker.execute).toHaveBeenCalledWith("H::")
+  })
 })
