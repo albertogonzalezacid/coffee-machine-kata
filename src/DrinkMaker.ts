@@ -1,3 +1,3 @@
-export class DrinkMaker {
-  execute() {}
+export interface DrinkMaker {
+  execute: (instructions: string) => void
 }

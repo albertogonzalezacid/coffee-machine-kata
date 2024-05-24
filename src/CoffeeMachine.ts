@@ -8,5 +8,8 @@ export class CoffeeMachine {
   selectCoffee() {}
   addSugar() {}
   addStick() {}
-  makeDrink() {}
+
+  makeDrink() {
+    this.drinkMaker.execute("H::")
+  }
 }
