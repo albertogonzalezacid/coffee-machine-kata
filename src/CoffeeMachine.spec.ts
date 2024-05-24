@@ -10,7 +10,6 @@ describe("CoffeeMachine", () => {
 
     coffeeMachine.selectTea()
     coffeeMachine.addSugar()
-    coffeeMachine.addStick()
     coffeeMachine.makeDrink()
 
     expect(drinkMaker.execute).toHaveBeenCalledWith("T:1:0")
@@ -53,5 +52,16 @@ describe("CoffeeMachine", () => {
     coffeeMachine.makeDrink()
 
     expect(drinkMaker.instructions).toBe("M:Selecciona una bebida antes")
+  })
+
+  it("makes 1 coffee with 1 sugars and a stick", () => {
+    const drinkMaker = new DrinkMakerFake()
+    const coffeeMachine = new CoffeeMachine(drinkMaker)
+
+    coffeeMachine.selectCoffee()
+    coffeeMachine.addSugar()
+    coffeeMachine.makeDrink()
+
+    expect(drinkMaker.instructions).toBe("C:1:0")
   })
 })

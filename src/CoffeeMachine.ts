@@ -14,11 +14,18 @@ export class CoffeeMachine {
   }
 
   selectCoffee() {
-    this.selectedDrink = "C::"
+    this.selectedDrink = "C"
   }
 
-  addSugar() {}
-  addStick() {}
+  addSugar() {
+    this.selectedDrink = this.selectedDrink + ":1"
+
+    this.addStick()
+  }
+
+  private addStick() {
+    this.selectedDrink = this.selectedDrink + ":0"
+  }
 
   makeDrink() {
     if (!this.selectedDrink) this.drinkMaker.execute("M:Selecciona una bebida antes")
