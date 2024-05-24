@@ -45,4 +45,13 @@ describe("CoffeeMachine", () => {
 
     expect(drinkMaker.instructions).toBe("T::")
   })
+
+  it("error when no drink is selected", () => {
+    const drinkMaker = new DrinkMakerFake()
+    const coffeeMachine = new CoffeeMachine(drinkMaker)
+
+    coffeeMachine.makeDrink()
+
+    expect(drinkMaker.instructions).toBe("M:Selecciona una bebida antes")
+  })
 })
